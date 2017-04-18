@@ -1,0 +1,5 @@
+package riadh.gestion.dao.entity;
+
+public class ProduitDAOImpl {
+
+}

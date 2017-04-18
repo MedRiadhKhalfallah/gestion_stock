@@ -1,0 +1,14 @@
+package riadh.gestion.util;
+
+import org.hibernate.Session;
+public class Test {
+	
+ static Session sesion = HibernateUtil.openSession();
+
+	public static void main(String[] args) {
+		
+		sesion.createQuery("select o From produit o").list();
+
+	}
+
+}

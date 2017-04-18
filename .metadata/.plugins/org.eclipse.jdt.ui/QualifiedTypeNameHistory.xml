@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="javax.persistence.Entity"/>
+<fullyQualifiedTypeName name="java.io.Serializable"/>
+<fullyQualifiedTypeName name="jdk.internal.dynalink.beans.StaticClass"/>
+<fullyQualifiedTypeName name="org.hibernate.Session"/>
+<fullyQualifiedTypeName name="org.apache.catalina.tribes.Heartbeat"/>
+<fullyQualifiedTypeName name="riadh.gestion.util.HibernateUtil"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
+<fullyQualifiedTypeName name="javax.persistence.GenerationType"/>
+<fullyQualifiedTypeName name="riadh.gestion.dao.entity.ProduitDAOImpl"/>
+<fullyQualifiedTypeName name="riadh.gestion.dao.entity.Produit"/>
+<fullyQualifiedTypeName name="riadh.gestion.service.ProduitService"/>
+<fullyQualifiedTypeName name="riadh.gestion.dao.ProduitDAO"/>
+<fullyQualifiedTypeName name="riadh.gestion.dao.ProduitDAOImpl"/>
+<fullyQualifiedTypeName name="javax.faces.bean.RequestScoped"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="java.awt.event.ActionEvent"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="javax.annotation.ManagedBean"/>
+<fullyQualifiedTypeName name="com.sun.xml.internal.bind.v2.runtime.Name"/>
+<fullyQualifiedTypeName name="javax.faces.bean.ManagedBean"/>
+<fullyQualifiedTypeName name="javax.faces.event.ActionEvent"/>
+</qualifiedTypeNameHistroy>

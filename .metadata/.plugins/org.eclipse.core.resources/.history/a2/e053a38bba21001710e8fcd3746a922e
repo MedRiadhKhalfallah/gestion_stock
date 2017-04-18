@@ -1,0 +1,5 @@
+package riadh.gestion.dao;
+
+public interface ProduitDAO {
+
+}

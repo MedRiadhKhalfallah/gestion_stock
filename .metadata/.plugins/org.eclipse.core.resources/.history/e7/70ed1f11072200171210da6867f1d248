@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html">
+<head>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gestion produit</title>
+<h:outputStylesheet library = "css" name = "bootstrap.min.css" />
+<h:outputStylesheet library = "css" name = "animate.css" /> 
+<h:outputStylesheet library = "css" name = "style.css" /> 
+
+</head>
+<body>
+	<h:outputText value="bonjour"></h:outputText>
+  <div id="wrapper">
+<div class="row">
+                <div class="col-lg-4">
+                        <div class="widget-head-color-box navy-bg p-lg text-center">
+                            <div class="m-b-md">
+                            <h2 class="font-bold no-margins">
+                                Alex Smith
+                            </h2>
+                                <small>Founder of Groupeq</small>
+                            </div>
+                          <!--   <img src="img/a4.jpg" class="img-circle circle-border m-b-md" alt="profile"> -->
+                            <div>
+                                <span>100 Tweets</span> |
+                                <span>350 Following</span> |
+                                <span>610 Followers</span>
+                            </div>
+                        </div>
+                        <div class="widget-text-box">
+                            <h4 class="media-heading">Alex Smith</h4>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                            <div class="text-right">
+                                <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
+                                <a class="btn btn-xs btn-primary"><i class="fa fa-heart"></i> Love</a>
+                            </div>
+                        </div>
+                </div>
+				</div>
+        </div>
+
+    
+ 
+</body>
+</html>

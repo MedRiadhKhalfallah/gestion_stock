@@ -1,0 +1,17 @@
+package riadh.gestion.util;
+
+import org.hibernate.Session;
+
+import riadh.gestion.dao.entity.Produit;
+public class Test {
+	
+ static Session sesion = HibernateUtil.openSession();
+
+	public static void main(String[] args) {
+		
+		sesion.createQuery("select o From produit o").list();
+		List<Produit> result = (List<Produit>) session.createQuery("from Produit").list();
+
+	}
+
+}
