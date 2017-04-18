@@ -32,6 +32,7 @@
         <property name="hbm2ddl.auto">update</property>
          
   		<mapping class="riadh.gestion.dao.entity.Produit"/>
+  		<mapping class="riadh.gestion.dao.entity.Utilisateur"/>
            
     </session-factory>
 </hibernate-configuration>
