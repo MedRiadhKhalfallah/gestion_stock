@@ -110,7 +110,7 @@ public class ProduitBean {
 		
 	}
 	
-	public String utilisateur_page()
+	public String utilisateur_page(ActionEvent e)
 	{
 		return "utilisateur";	
 	}

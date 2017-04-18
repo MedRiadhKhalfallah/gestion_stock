@@ -60,7 +60,7 @@ public class UtilisateurBean {
 		//System.out.println(adresse_utilisateur);
 		
 	}
-	public String page_produit()
+	public String page_produit(ActionEvent e)
 	{
 		return "produit";
 		
