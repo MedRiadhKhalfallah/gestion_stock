@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="javax.persistence.Entity"/>
-<fullyQualifiedTypeName name="java.io.Serializable"/>
 <fullyQualifiedTypeName name="jdk.internal.dynalink.beans.StaticClass"/>
 <fullyQualifiedTypeName name="org.hibernate.Session"/>
 <fullyQualifiedTypeName name="org.apache.catalina.tribes.Heartbeat"/>
@@ -23,4 +22,17 @@
 <fullyQualifiedTypeName name="com.sun.xml.internal.bind.v2.runtime.Name"/>
 <fullyQualifiedTypeName name="javax.faces.bean.ManagedBean"/>
 <fullyQualifiedTypeName name="javax.faces.event.ActionEvent"/>
+<fullyQualifiedTypeName name="riadh.gestion.service.FournisseurService"/>
+<fullyQualifiedTypeName name="riadh.gestion.dao.FournisseurDAO"/>
+<fullyQualifiedTypeName name="riadh.gestion.dao.FournisseurDAOImpl"/>
+<fullyQualifiedTypeName name="riadh.gestion.dao.entity.Fournisseur"/>
+<fullyQualifiedTypeName name="riadh.gestion.service.HistoriqueService"/>
+<fullyQualifiedTypeName name="riadh.gestion.dao.HistoriqueDAO"/>
+<fullyQualifiedTypeName name="riadh.gestion.dao.HistoriqueDAOImpl"/>
+<fullyQualifiedTypeName name="riadh.gestion.dao.entity.Historique"/>
+<fullyQualifiedTypeName name="java.io.Serializable"/>
+<fullyQualifiedTypeName name="riadh.gestion.service.ImageService"/>
+<fullyQualifiedTypeName name="riadh.gestion.dao.ImageDAO"/>
+<fullyQualifiedTypeName name="riadh.gestion.dao.ImageDAOImpl"/>
+<fullyQualifiedTypeName name="riadh.gestion.dao.entity.Image"/>
 </qualifiedTypeNameHistroy>

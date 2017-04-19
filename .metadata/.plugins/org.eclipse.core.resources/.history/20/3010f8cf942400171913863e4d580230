@@ -1,0 +1,45 @@
+package riadh.gestion.dao.entity;
+
+import java.util.List;
+
+import org.hibernate.Session;
+
+import riadh.gestion.dao.FournisseurDAO;
+import riadh.gestion.util.HibernateUtil;
+
+public class FournisseurDAOImpl implements FournisseurDAO {
+	
+	 static Session sesion = HibernateUtil.openSession();
+
+
+	@Override
+	public void add(Fournisseur f) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Fournisseur edite(Fournisseur f) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void delete(long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Fournisseur> finAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Fournisseur finById(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
