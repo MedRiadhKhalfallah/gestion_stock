@@ -1,0 +1,201 @@
+package riadh.gestion.presentation;
+
+ import javax.faces.event.ActionEvent;
+import javax.faces.model.SelectItem;
+
+import riadh.gestion.dao.entity.Produit;
+import riadh.gestion.service.ProduitService;
+import riadh.gestion.service.ProduitServiceImpl;
+
+import javax.faces.bean.RequestScoped;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+
+
+@ManagedBean
+@RequestScoped
+public class ProduitBean {
+	
+	private ProduitService service_produit = new ProduitServiceImpl();
+	private int success;
+	
+	private String nom_produit;
+	private int quantite_produit;
+	private String nom_fournisseur_produit;
+	private int seuil_min_produit;
+	private int seuil_max_produit;
+	private String description_produit;
+	
+private List<SelectItem> nom_fournisseur_list;
+
+@PostConstruct
+public void initBean()
+{
+nom_fournisseur_list = new ArrayList<>();
+nom_fournisseur_list.add(new SelectItem("riadh fourn","riadh fourn"));
+nom_fournisseur_list.add(new SelectItem("sami fourn","sami fourn"));
+nom_fournisseur_list.add(new SelectItem("marwen fourn","marwen fourn"));
+}
+
+
+
+
+	
+	
+	public int getSuccess() {
+	return success;
+}
+
+
+
+
+
+
+public void setSuccess(int success) {
+	this.success = success;
+}
+
+
+
+
+
+
+	public List<SelectItem> getNom_fournisseur_list() {
+	return nom_fournisseur_list;
+}
+
+
+
+
+public void setNom_fournisseur_list(List<SelectItem> nom_fournisseur_list) {
+	this.nom_fournisseur_list = nom_fournisseur_list;
+}
+
+
+
+
+	public String getNom_produit() {
+		return nom_produit;
+	}
+
+
+
+
+	public void setNom_produit(String nom_produit) {
+		this.nom_produit = nom_produit;
+	}
+
+
+
+
+	public int getQuantite_produit() {
+		return quantite_produit;
+	}
+
+
+
+
+	public void setQuantite_produit(int quantite_produit) {
+		this.quantite_produit = quantite_produit;
+	}
+
+
+
+
+	public String getNom_fournisseur_produit() {
+		return nom_fournisseur_produit;
+	}
+
+
+
+
+	public void setNom_fournisseur_produit(String nom_fournisseur_produit) {
+		this.nom_fournisseur_produit = nom_fournisseur_produit;
+	}
+
+
+
+
+	public int getSeuil_min_produit() {
+		return seuil_min_produit;
+	}
+
+
+
+
+	public void setSeuil_min_produit(int seuil_min_produit) {
+		this.seuil_min_produit = seuil_min_produit;
+	}
+
+
+
+
+	public int getSeuil_max_produit() {
+		return seuil_max_produit;
+	}
+
+
+
+
+	public void setSeuil_max_produit(int seuil_max_produit) {
+		this.seuil_max_produit = seuil_max_produit;
+	}
+
+
+
+
+	public String getDescription_produit() {
+		return description_produit;
+	}
+
+
+
+
+	public void setDescription_produit(String description_produit) {
+		this.description_produit = description_produit;
+	}
+
+
+
+
+	public void saveadd(ActionEvent e)
+	{
+		System.out.println(nom_produit);
+		System.out.println(quantite_produit);
+		
+	}
+	
+	public String utilisateur_page()
+	{
+		return "utilisateur";	
+	}
+	
+	public void AddProduit(ActionEvent e)
+	{
+		Produit p = new Produit();
+		p.setNom_produit(nom_produit);
+		p.setNom_fournisseur_produit(nom_fournisseur_produit);
+		p.setSeuil_max_produit(seuil_max_produit);
+		p.setSeuil_min_produit(seuil_min_produit);
+		p.setDescription_produit(description_produit);
+		p.setQuantite_produit(0);
+		
+		service_produit.add(p);
+		
+		success=1;
+		nom_produit="";
+		nom_fournisseur_produit="";
+		seuil_min_produit=0;
+		seuil_max_produit=0;
+		description_produit="";
+		quantite_produit=0;
+		
+	}
+	
+	
+
+}

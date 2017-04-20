@@ -33,6 +33,9 @@
          
   		<mapping class="riadh.gestion.dao.entity.Produit"/>
   		<mapping class="riadh.gestion.dao.entity.Utilisateur"/>
+  		<mapping class="riadh.gestion.dao.entity.Fournisseur"/>
+  		<mapping class="riadh.gestion.dao.entity.Historique"/>
+  		<mapping class="riadh.gestion.dao.entity.Image"/>
            
     </session-factory>
 </hibernate-configuration>
