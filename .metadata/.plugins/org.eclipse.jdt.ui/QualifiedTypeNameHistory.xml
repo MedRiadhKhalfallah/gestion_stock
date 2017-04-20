@@ -28,14 +28,12 @@
 <fullyQualifiedTypeName name="riadh.gestion.dao.ImageDAOImpl"/>
 <fullyQualifiedTypeName name="riadh.gestion.dao.entity.Image"/>
 <fullyQualifiedTypeName name="javax.faces.event.ActionEvent"/>
-<fullyQualifiedTypeName name="riadh.gestion.dao.entity.Produit"/>
 <fullyQualifiedTypeName name="java.lang.Object"/>
 <fullyQualifiedTypeName name="javax.annotation.PostConstruct"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="javax.faces.model.SelectItem"/>
 <fullyQualifiedTypeName name="riadh.gestion.service.ProduitService"/>
 <fullyQualifiedTypeName name="riadh.gestion.service.ProduitServiceImpl"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="riadh.gestion.service.FournisseurService"/>
 <fullyQualifiedTypeName name="riadh.gestion.service.FournisseurServiceImpl"/>
 <fullyQualifiedTypeName name="riadh.gestion.dao.entity.Fournisseur"/>
@@ -53,4 +51,6 @@
 <fullyQualifiedTypeName name="java.io.InputStream"/>
 <fullyQualifiedTypeName name="javax.servlet.http.Part"/>
 <fullyQualifiedTypeName name="java.nio.file.Files"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="riadh.gestion.dao.entity.Produit"/>
 </qualifiedTypeNameHistroy>

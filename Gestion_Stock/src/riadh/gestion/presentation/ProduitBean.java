@@ -40,13 +40,14 @@ public class ProduitBean {
 	private int success;
 	//attribut class *********************************
 	private String nom_produit;
-	private int quantite_produit;
+	private int quantite_produit=0;
 	private String nom_fournisseur_produit;
-	private int seuil_min_produit;
-	private int seuil_max_produit;
+	private int seuil_min_produit=0;
+	private int seuil_max_produit=0;
 	private String description_produit;
 	// select ***************************
 	private List<SelectItem> nom_fournisseur_list;
+	private List<Produit> list_produit;
 
 @PostConstruct
 public void initBean()
@@ -54,20 +55,42 @@ public void initBean()
 	//select ************************
 nom_fournisseur_list = new ArrayList<>();
 List<Fournisseur> list_fourniseur = service_fournisseur.finAll();
+
 nom_fournisseur_list.add(new SelectItem("",""));
 for (Fournisseur o : list_fourniseur) {
 	nom_fournisseur_list.add(new SelectItem(o.getNom_fournisseur(),o.getNom_fournisseur()));
-	//*******************************
-
 	
+}	
+	//table***********************
+	list_produit = service_produit.finAll();
+	
+	
+
 }
+
+
+
+
+	
+	
+	public List<Produit> getList_produit() {
+	return list_produit;
 }
 
 
 
 
-	
-	
+
+
+public void setList_produit(List<Produit> list_produit) {
+	this.list_produit = list_produit;
+}
+
+
+
+
+
+
 	public int getSuccess() {
 	return success;
 }
@@ -190,10 +213,14 @@ public void setNom_fournisseur_list(List<SelectItem> nom_fournisseur_list) {
 		System.out.println(quantite_produit);
 		
 	}
-	
+	// rederection page ***********************
 	public String utilisateur_page()
 	{
 		return "utilisateur";	
+	}
+	public String produit_page()
+	{
+		return "produit";	
 	}
 	
 	public void AddProduit(ActionEvent e)
