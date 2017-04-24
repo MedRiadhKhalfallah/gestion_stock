@@ -1,8 +1,9 @@
 package riadh.gestion.presentation;
 
  import javax.faces.event.ActionEvent;
+import javax.faces.event.SystemEvent;
 import javax.faces.model.SelectItem;
-
+import javax.xml.bind.ParseConversionEvent;
 import riadh.gestion.dao.entity.Fournisseur;
 import riadh.gestion.dao.entity.Historique;
 import riadh.gestion.dao.entity.Produit;
@@ -14,6 +15,9 @@ import riadh.gestion.service.ProduitService;
 import riadh.gestion.service.ProduitServiceImpl;
 
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
+import javax.faces.context.ExternalContextFactory;
+import javax.faces.context.FacesContext;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -22,6 +26,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.TimeZone;
 
 import javax.annotation.PostConstruct;
@@ -39,6 +44,7 @@ public class ProduitBean {
 	// affichage message ********************************
 	private int success;
 	//attribut class *********************************
+
 	private String nom_produit;
 	private int quantite_produit=0;
 	private String nom_fournisseur_produit;
@@ -48,28 +54,47 @@ public class ProduitBean {
 	// select ***************************
 	private List<SelectItem> nom_fournisseur_list;
 	private List<Produit> list_produit;
+	private Produit modif_produit = new Produit();
+	//request****************
+private String id;
 
 @PostConstruct
 public void initBean()
 {
-	//select ************************
-nom_fournisseur_list = new ArrayList<>();
-List<Fournisseur> list_fourniseur = service_fournisseur.finAll();
-
-nom_fournisseur_list.add(new SelectItem("",""));
-for (Fournisseur o : list_fourniseur) {
-	nom_fournisseur_list.add(new SelectItem(o.getNom_fournisseur(),o.getNom_fournisseur()));
-	
-}	
+	System.out.println("sdfsdgdfgf");
 	//table***********************
 	list_produit = service_produit.finAll();
 	
-	
+	// modif ***************************
+	if(getParam("id_produit")!=null)	{
+		modif_produit = service_produit.finById(Integer.parseInt(getParam("id_produit")));
+		setId(getParam("id_produit"));
+		System.out.println(modif_produit.getNom_produit());
+		System.out.println(modif_produit.getId_produit());
 
+	}
+	System.out.println("id_produit :"+getParam("id_produit"));
+	System.out.println("nom_produit :"+getParam("nom_produit"));
+
+	//select ************************
+nom_fournisseur_list = new ArrayList<>();
+List<Fournisseur> list_fourniseur = service_fournisseur.finAll();
+if(getParam("id_produit")!=null)	
+{
+nom_fournisseur_list.add(new SelectItem(modif_produit.getNom_fournisseur_produit(),modif_produit.getNom_fournisseur_produit()));
+
+}
+	nom_fournisseur_list.add(new SelectItem("",""));
+
+
+for (Fournisseur o : list_fourniseur) {
+		nom_fournisseur_list.add(new SelectItem(o.getNom_fournisseur(),o.getNom_fournisseur()));
+
+}
 }
 
 
-
+//setter et getter ***********************
 
 	
 	
@@ -82,9 +107,27 @@ for (Fournisseur o : list_fourniseur) {
 
 
 
-public void setList_produit(List<Produit> list_produit) {
-	this.list_produit = list_produit;
-}
+public String getId() {
+		return id;
+	}
+
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+
+public Produit getModif_produit() {
+		return modif_produit;
+	}
+
+
+
+	public void setModif_produit(Produit modif_produit) {
+		this.modif_produit = modif_produit;
+	}
+
+
 
 
 
@@ -254,6 +297,69 @@ public void setNom_fournisseur_list(List<SelectItem> nom_fournisseur_list) {
 		seuil_max_produit=0;
 		description_produit="";
 		quantite_produit=0;
+		
+	}
+	public String modifProduit(ActionEvent e)
+	{
+		Produit p=modif_produit;
+		System.out.println(id);
+		p.setId_produit(Integer.parseInt(id));
+		p.setNom_produit(modif_produit.getNom_produit());
+		p.setNom_fournisseur_produit(modif_produit.getNom_fournisseur_produit());
+		p.setSeuil_max_produit(modif_produit.getSeuil_max_produit());
+		p.setSeuil_min_produit(modif_produit.getSeuil_min_produit());
+		p.setDescription_produit(modif_produit.getDescription_produit());
+		p.setQuantite_produit(modif_produit.getQuantite_produit());
+		
+		service_produit.edite(p);
+		
+		// ajout de historique ***************
+		Historique h= new Historique();
+		h.setNom_produit_historique(modif_produit.getNom_produit());
+		// date************
+		Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT+01:00"), Locale.FRANCE);
+		Date date1=calendar.getTime();
+		String dateString=new SimpleDateFormat("dd/MM/yyyy HH:mm").format(date1);
+		//*******
+		h.setDescription_historique("modifie produit "+modif_produit.getNom_produit()+" de fournisseur "+modif_produit.getNom_fournisseur_produit());
+		h.setDate_historique(dateString);
+		service_historique.add(h);
+		// ajout de produit avec success *************
+		success=1;
+		return "list_produit";
+		
+	}
+	public void suppProduit()
+	{
+		
+		service_produit.delete(Integer.parseInt(getParam("id_produit")));
+		
+		list_produit = service_produit.finAll();
+		
+		
+		// ajout de historique ***************
+		
+				Historique h= new Historique();
+				h.setNom_produit_historique(getParam("nom_produit"));
+				// date************
+				Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT+01:00"), Locale.FRANCE);
+				Date date1=calendar.getTime();
+				String dateString=new SimpleDateFormat("dd/MM/yyyy HH:mm").format(date1);
+				//*******
+				h.setDescription_historique("supprime produit "+getParam("nom_produit")+" de fournisseur "+getParam("nom_fournisseur_produit"));
+				h.setDate_historique(dateString);
+				service_historique.add(h);
+				// ajout de produit avec success *************
+				success=1;
+		
+	}
+	
+	public String getParam(String name){
+		
+		FacesContext fc = FacesContext.getCurrentInstance();
+		Map<String,String> params = fc.getExternalContext().getRequestParameterMap();
+		
+		return params.get(name);
 		
 	}
 	

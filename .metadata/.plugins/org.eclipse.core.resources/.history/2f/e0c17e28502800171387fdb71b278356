@@ -1,0 +1,90 @@
+package riadh.gestion.presentation;
+
+import java.util.List;
+
+import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+import javax.faces.model.SelectItem;
+
+import riadh.gestion.dao.entity.Fournisseur;
+import riadh.gestion.dao.entity.Historique;
+import riadh.gestion.dao.entity.Produit;
+import riadh.gestion.service.HistoriqueService;
+import riadh.gestion.service.HistoriqueServiceImpl;
+
+@ManagedBean
+@RequestScoped
+public class FournisseurBean {
+	// nista3mil fihom bech n3ayat lil les methode**************************** 
+	private HistoriqueService service_historique = new HistoriqueServiceImpl();
+
+	private List<Historique> list_historique;
+	
+	
+	
+	private String nom_produit_historique="riva";
+	private String date_historique;
+	private String description_historique;
+	
+	@PostConstruct
+	public void initBean()
+	{System.out.println("heyyy");
+		
+		//table***********************
+		list_historique = service_historique.finAll();
+		
+		for (Historique o : list_historique) {
+			System.out.println(o.getNom_produit_historique());
+			System.out.println(o.getDate_historique());
+
+	}
+	}
+	
+	
+	
+	
+	
+	
+	public List<Historique> getList_historique() {
+		System.out.println("deeeeeeeeeeeeeeee");
+		return list_historique;
+	}
+
+
+
+
+
+
+	public void setList_historique(List<Historique> list_historique) {
+		this.list_historique = list_historique;
+	}
+
+
+
+
+
+
+	public String getNom_produit_historique() {
+		System.out.println("deeeeeeeeegrtee");
+		return nom_produit_historique;
+	}
+	public void setNom_produit_historique(String nom_produit_historique) {
+		this.nom_produit_historique = nom_produit_historique;
+	}
+	public String getDate_historique() {
+		return date_historique;
+	}
+	public void setDate_historique(String date_historique) {
+		this.date_historique = date_historique;
+	}
+	public String getDescription_historique() {
+		return description_historique;
+	}
+	public void setDescription_historique(String description_historique) {
+		this.description_historique = description_historique;
+	}
+	
+	
+
+}

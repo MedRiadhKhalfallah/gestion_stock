@@ -1,0 +1,215 @@
+package riadh.gestion.presentation;
+
+import java.util.List;
+
+import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+
+import riadh.gestion.dao.entity.Historique;
+import riadh.gestion.service.HistoriqueService;
+import riadh.gestion.service.HistoriqueServiceImpl;
+
+@ManagedBean
+@RequestScoped
+public class FournisseurBean {
+	
+	
+	
+	private String nom_fournisseur="7ama7ama";
+	private String adresse_mail_fournisseur;
+	private String adresse_fournisseur;
+	private String num_tel_fournisseur;
+	private String description_fournisseur;
+	public String getNom_fournisseur() {
+		return nom_fournisseur;
+	}
+	public void setNom_fournisseur(String nom_fournisseur) {
+		this.nom_fournisseur = nom_fournisseur;
+	}
+	public String getAdresse_mail_fournisseur() {
+		return adresse_mail_fournisseur;
+	}
+	public void setAdresse_mail_fournisseur(String adresse_mail_fournisseur) {
+		this.adresse_mail_fournisseur = adresse_mail_fournisseur;
+	}
+	public String getAdresse_fournisseur() {
+		return adresse_fournisseur;
+	}
+	public void setAdresse_fournisseur(String adresse_fournisseur) {
+		this.adresse_fournisseur = adresse_fournisseur;
+	}
+	public String getNum_tel_fournisseur() {
+		return num_tel_fournisseur;
+	}
+	public void setNum_tel_fournisseur(String num_tel_fournisseur) {
+		this.num_tel_fournisseur = num_tel_fournisseur;
+	}
+	public String getDescription_fournisseur() {
+		return description_fournisseur;
+	}
+	public void setDescription_fournisseur(String description_fournisseur) {
+		this.description_fournisseur = description_fournisseur;
+	}
+	
+	private HistoriqueService service_historique = new HistoriqueServiceImpl();
+
+	private List<Historique> list_historique;
+	
+	private String nom_produit_historique="riva";
+	private String date_historique;
+	private String description_historique;
+	
+	@PostConstruct
+	public void initBean()
+	{System.out.println("heyyy");
+		
+		//table***********************
+		list_historique = service_historique.finAll();
+		
+		for (Historique o : list_historique) {
+			System.out.println(o.getNom_produit_historique());
+			System.out.println(o.getDate_historique());
+
+	}
+	}
+	
+	
+	
+	
+	
+	
+	public List<Historique> getList_historique() {
+		System.out.println("deeeeeeeeeeeeeeee");
+		return list_historique;
+	}
+
+
+
+
+
+
+	public void setList_historique(List<Historique> list_historique) {
+		this.list_historique = list_historique;
+	}
+
+
+
+
+
+
+	public String getNom_produit_historique() {
+		System.out.println("deeeeeeeeegrtee");
+		return nom_produit_historique;
+	}
+	public void setNom_produit_historique(String nom_produit_historique) {
+		this.nom_produit_historique = nom_produit_historique;
+	}
+	public String getDate_historique() {
+		return date_historique;
+	}
+	public void setDate_historique(String date_historique) {
+		this.date_historique = date_historique;
+	}
+	public String getDescription_historique() {
+		return description_historique;
+	}
+	public void setDescription_historique(String description_historique) {
+		this.description_historique = description_historique;
+	}
+	
+	
+	
+
+}
+//*************************************************
+package riadh.gestion.presentation;
+
+import java.util.List;
+
+import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+import javax.faces.model.SelectItem;
+
+import riadh.gestion.dao.entity.Fournisseur;
+import riadh.gestion.dao.entity.Historique;
+import riadh.gestion.dao.entity.Produit;
+import riadh.gestion.service.HistoriqueService;
+import riadh.gestion.service.HistoriqueServiceImpl;
+
+@ManagedBean
+@RequestScoped
+public class HistoriqueBean {
+	// nista3mil fihom bech n3ayat lil les methode**************************** 
+	private HistoriqueService service_historique = new HistoriqueServiceImpl();
+
+	private List<Historique> list_historique;
+	
+	
+	
+	private String nom_produit_historique="riva";
+	private String date_historique;
+	private String description_historique;
+	
+	@PostConstruct
+	public void initBean()
+	{System.out.println("heyyy");
+		
+		//table***********************
+		list_historique = service_historique.finAll();
+		
+		for (Historique o : list_historique) {
+			System.out.println(o.getNom_produit_historique());
+			System.out.println(o.getDate_historique());
+
+	}
+	}
+	
+	
+	
+	
+	
+	
+	public List<Historique> getList_historique() {
+		System.out.println("deeeeeeeeeeeeeeee");
+		return list_historique;
+	}
+
+
+
+
+
+
+	public void setList_historique(List<Historique> list_historique) {
+		this.list_historique = list_historique;
+	}
+
+
+
+
+
+
+	public String getNom_produit_historique() {
+		System.out.println("deeeeeeeeegrtee");
+		return nom_produit_historique;
+	}
+	public void setNom_produit_historique(String nom_produit_historique) {
+		this.nom_produit_historique = nom_produit_historique;
+	}
+	public String getDate_historique() {
+		return date_historique;
+	}
+	public void setDate_historique(String date_historique) {
+		this.date_historique = date_historique;
+	}
+	public String getDescription_historique() {
+		return description_historique;
+	}
+	public void setDescription_historique(String description_historique) {
+		this.description_historique = description_historique;
+	}
+	
+	
+
+}

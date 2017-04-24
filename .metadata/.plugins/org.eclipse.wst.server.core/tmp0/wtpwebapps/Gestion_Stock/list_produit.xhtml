@@ -114,8 +114,17 @@
                         <td><h:outputText  value ="#{tab.nom_produit}"></h:outputText></td>
                         <td><h:outputText  value ="#{tab.quantite_produit}"></h:outputText></td>
                         <td><h:outputText  value ="#{tab.nom_fournisseur_produit}"></h:outputText></td>
-                        <td><h:commandButton value="modif" action="#{produitBean.produit_page}"></h:commandButton></td>
-                        <td><h:commandButton value="supprime" action="#{produitBean.produit_page}"></h:commandButton></td>
+                        <td>
+                       <h:outputLink value="modif_produit.xhtml">hhhhhhh
+                        <f:param name="id_produit" value="#{tab.id_produit}"></f:param>
+                        <f:param name="nom_produit" value="#{tab.nom_produit}"></f:param>
+                        </h:outputLink></td>
+                        <td><h:commandButton value="supprime" action="#{produitBean.suppProduit}">
+                          <f:param name="id_produit" value="#{tab.id_produit}"></f:param>
+                          <f:param name="nom_produit" value="#{tab.nom_produit}"></f:param>
+                          <f:param name="nom_fournisseur_produit" value="#{tab.nom_fournisseur_produit}"></f:param>
+                        </h:commandButton></td>
+                        
                     </tr>
                     </ui:repeat>
                     </tbody>

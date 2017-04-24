@@ -1,0 +1,28 @@
+package riadh.gestion.presentation;
+
+import java.util.List;
+
+import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+import javax.faces.model.SelectItem;
+
+import riadh.gestion.dao.entity.Fournisseur;
+import riadh.gestion.dao.entity.Historique;
+import riadh.gestion.dao.entity.Produit;
+import riadh.gestion.service.HistoriqueService;
+import riadh.gestion.service.HistoriqueServiceImpl;
+
+@ManagedBean
+@RequestScoped
+public class FournisseurBean {
+	// nista3mil fihom bech n3ayat lil les methode**************************** 
+	private HistoriqueService service_historique = new HistoriqueServiceImpl();
+
+	private List<Historique> list_historique;
+	
+
+	
+	
+
+}

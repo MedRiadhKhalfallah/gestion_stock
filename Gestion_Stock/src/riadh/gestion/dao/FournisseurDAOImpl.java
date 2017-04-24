@@ -17,7 +17,7 @@ public class FournisseurDAOImpl implements FournisseurDAO {
 
 
 	@Override
-	public void delete(long id) {
+	public void delete(int id) {
 		
 		sesion.beginTransaction();
 		Fournisseur f =finById(id);
@@ -52,7 +52,7 @@ public class FournisseurDAOImpl implements FournisseurDAO {
 	}
 
 	@Override
-	public Fournisseur finById(long id) {
+	public Fournisseur finById(int id) {
 		return (Fournisseur)sesion.get(Fournisseur.class, id);
 
 	}

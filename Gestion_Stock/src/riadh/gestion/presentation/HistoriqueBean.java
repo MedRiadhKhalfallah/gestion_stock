@@ -1,15 +1,65 @@
 package riadh.gestion.presentation;
 
+import java.util.List;
+
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+
+import riadh.gestion.dao.entity.Historique;
+import riadh.gestion.service.HistoriqueService;
+import riadh.gestion.service.HistoriqueServiceImpl;
 
 @ManagedBean
 @RequestScoped
 public class HistoriqueBean {
+	// nista3mil fihom bech n3ayat lil les methode**************************** 
+	private HistoriqueService service_historique = new HistoriqueServiceImpl();
+
+	private List<Historique> list_historique;
 	
-	private String nom_produit_historique;
+	
+	
+	private String nom_produit_historique="riva";
 	private String date_historique;
 	private String description_historique;
+	
+	@PostConstruct
+	public void initBean()
+	{	
+		//table***********************
+		list_historique = service_historique.finAll();
+		
+		for (Historique o : list_historique) {
+			System.out.println(o.getNom_produit_historique());
+			System.out.println(o.getDate_historique());
+
+	}
+	}
+	
+	
+	
+	
+	
+	
+	public List<Historique> getList_historique() {
+		return list_historique;
+	}
+
+
+
+
+
+
+	public void setList_historique(List<Historique> list_historique) {
+		this.list_historique = list_historique;
+	}
+
+
+
+
+
+
 	public String getNom_produit_historique() {
 		return nom_produit_historique;
 	}

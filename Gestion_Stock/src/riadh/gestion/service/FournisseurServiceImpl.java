@@ -22,7 +22,7 @@ public class FournisseurServiceImpl implements FournisseurService{
 	}
 
 	@Override
-	public void delete(long id) {
+	public void delete(int id) {
 		dao.delete(id);
 	}
 
@@ -33,7 +33,7 @@ public class FournisseurServiceImpl implements FournisseurService{
 	}
 
 	@Override
-	public Fournisseur finById(long id) {
+	public Fournisseur finById(int id) {
 
 		return dao.finById(id);
 	}

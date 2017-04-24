@@ -9,6 +9,7 @@ public class ImageBean {
 	
 	private String lien_image;
 	private int id_produit;
+	
 	public String getLien_image() {
 		return lien_image;
 	}

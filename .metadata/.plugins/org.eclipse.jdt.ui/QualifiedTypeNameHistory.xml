@@ -5,7 +5,6 @@
 <fullyQualifiedTypeName name="org.hibernate.Session"/>
 <fullyQualifiedTypeName name="org.apache.catalina.tribes.Heartbeat"/>
 <fullyQualifiedTypeName name="riadh.gestion.util.HibernateUtil"/>
-<fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
 <fullyQualifiedTypeName name="javax.persistence.GenerationType"/>
 <fullyQualifiedTypeName name="riadh.gestion.dao.entity.ProduitDAOImpl"/>
@@ -14,7 +13,6 @@
 <fullyQualifiedTypeName name="javax.faces.bean.RequestScoped"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="java.awt.event.ActionEvent"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="javax.annotation.ManagedBean"/>
 <fullyQualifiedTypeName name="com.sun.xml.internal.bind.v2.runtime.Name"/>
 <fullyQualifiedTypeName name="javax.faces.bean.ManagedBean"/>
@@ -33,13 +31,10 @@
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="javax.faces.model.SelectItem"/>
 <fullyQualifiedTypeName name="riadh.gestion.service.ProduitService"/>
-<fullyQualifiedTypeName name="riadh.gestion.service.ProduitServiceImpl"/>
 <fullyQualifiedTypeName name="riadh.gestion.service.FournisseurService"/>
 <fullyQualifiedTypeName name="riadh.gestion.service.FournisseurServiceImpl"/>
-<fullyQualifiedTypeName name="riadh.gestion.dao.entity.Fournisseur"/>
 <fullyQualifiedTypeName name="riadh.gestion.service.HistoriqueService"/>
 <fullyQualifiedTypeName name="riadh.gestion.service.HistoriqueServiceImpl"/>
-<fullyQualifiedTypeName name="riadh.gestion.dao.entity.Historique"/>
 <fullyQualifiedTypeName name="java.util.Calendar"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="java.util.Locale"/>
@@ -52,5 +47,16 @@
 <fullyQualifiedTypeName name="javax.servlet.http.Part"/>
 <fullyQualifiedTypeName name="java.nio.file.Files"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="javax.faces.context.FacesContext"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="javax.faces.event.SystemEvent"/>
+<fullyQualifiedTypeName name="javax.faces.context.ExternalContextFactory"/>
 <fullyQualifiedTypeName name="riadh.gestion.dao.entity.Produit"/>
+<fullyQualifiedTypeName name="riadh.gestion.dao.entity.Historique"/>
+<fullyQualifiedTypeName name="javax.xml.bind.ParseConversionEvent"/>
+<fullyQualifiedTypeName name="javax.faces.bean.ViewScoped"/>
+<fullyQualifiedTypeName name="riadh.gestion.service.ProduitServiceImpl"/>
+<fullyQualifiedTypeName name="riadh.gestion.dao.entity.Fournisseur"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>

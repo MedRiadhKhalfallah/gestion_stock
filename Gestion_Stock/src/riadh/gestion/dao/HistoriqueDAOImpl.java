@@ -41,7 +41,7 @@ public class HistoriqueDAOImpl implements HistoriqueDAO {
 
 	@Override
 	public List<Historique> finAll() {
-		return sesion.createQuery("select o from Historique o").list();
+		return sesion.createQuery("from Historique h order by h.id_historique DESC").list();
 
 	}
 

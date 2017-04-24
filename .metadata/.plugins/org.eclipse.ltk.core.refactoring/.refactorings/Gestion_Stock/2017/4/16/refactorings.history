@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Gestion_Stock/src/riadh/gestion/presentation/Historique.java&apos; to &apos;HistoriqueBean.java&apos;" description="Rename resource &apos;Historique.java&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/riadh/gestion/presentation/Historique.java" name="HistoriqueBean.java" stamp="1492971050575" updateReferences="true"/>
+</session>
