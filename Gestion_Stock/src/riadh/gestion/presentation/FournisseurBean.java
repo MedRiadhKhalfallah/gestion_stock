@@ -41,9 +41,11 @@ public class FournisseurBean {
 	private int success;
 	//select *************
 	private List<Fournisseur> list_fournisseur;
+
+	private Fournisseur modif_fournisseur = new Fournisseur();
 	
 	//request****************
-	//private String id;
+	private String id;
 	
 	
 	@PostConstruct
@@ -54,25 +56,46 @@ public class FournisseurBean {
 		list_fournisseur = service_fournisseur.finAll();
 		
 		// modif ***************************
-		/*if(getParam("id_produit")!=null)	{
-			modif_produit = service_produit.finById(Integer.parseInt(getParam("id_produit")));
-			setId(getParam("id_produit"));
-			System.out.println(modif_produit.getNom_produit());
-			System.out.println(modif_produit.getId_produit());
+		if(getParam("id_fournisseur")!=null)	{
+			modif_fournisseur = service_fournisseur.finById(Integer.parseInt(getParam("id_fournisseur")));
+			setId(getParam("id_fournisseur"));
+			System.out.println(modif_fournisseur.getNom_fournisseur());
+			System.out.println(modif_fournisseur.getId_fournisseur());
 
 		}
-		System.out.println("id_produit :"+getParam("id_produit"));
-		System.out.println("nom_produit :"+getParam("nom_produit"));
-*/
+		System.out.println("id_fournisseur :"+getParam("id_fournisseur"));
+		System.out.println("nom_fournisseur :"+getParam("nom_fournisseur"));
+
 	}
 	
 	
 	//geter et settet *****************
 	
 	
+	
 	public int getSuccess() {
 		return success;
 	}
+	public Fournisseur getModif_fournisseur() {
+		return modif_fournisseur;
+	}
+
+
+	public void setModif_fournisseur(Fournisseur modif_fournisseur) {
+		this.modif_fournisseur = modif_fournisseur;
+	}
+
+
+	public String getId() {
+		return id;
+	}
+
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+
 	public List<Fournisseur> getList_fournisseur() {
 		return list_fournisseur;
 	}
@@ -176,6 +199,38 @@ public class FournisseurBean {
 				service_historique.add(h);
 				// ajout de produit avec success *************
 				success=1;
+		
+	}
+	public String modifFournisseur(ActionEvent e)
+	{
+		
+		Fournisseur f = modif_fournisseur;
+		System.out.println(id);
+		f.setId_fournisseur(Integer.parseInt(id));
+		f.setNom_fournisseur(modif_fournisseur.getNom_fournisseur());
+		f.setAdresse_mail_fournisseur(modif_fournisseur.getAdresse_mail_fournisseur());
+		f.setAdresse_fournisseur(modif_fournisseur.getAdresse_fournisseur());
+		f.setNum_tel_fournisseur(modif_fournisseur.getNum_tel_fournisseur());
+		f.setDescription_fournisseur(modif_fournisseur.getDescription_fournisseur());
+
+
+		
+		service_fournisseur.edite(f);
+		
+		// ajout de historique ***************
+		Historique h= new Historique();
+		h.setNom_produit_historique(modif_fournisseur.getNom_fournisseur());
+		// date************
+		Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT+01:00"), Locale.FRANCE);
+		Date date1=calendar.getTime();
+		String dateString=new SimpleDateFormat("dd/MM/yyyy HH:mm").format(date1);
+		//*******
+		h.setDescription_historique("modifie produit "+modif_fournisseur.getNom_fournisseur()+" de fournisseur "+modif_fournisseur.getNom_fournisseur());
+		h.setDate_historique(dateString);
+		service_historique.add(h);
+		// ajout de produit avec success *************
+		success=1;
+		return "list_produit";
 		
 	}
 	

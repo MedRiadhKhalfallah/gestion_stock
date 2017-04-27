@@ -113,9 +113,9 @@
                         <td><h:outputText  value ="#{fou.adresse_fournisseur}"></h:outputText></td>
                         <td><h:outputText  value ="#{fou.num_tel_fournisseur}"></h:outputText></td>
                         <td>
-                       <h:outputLink value="modif_fournissuer.xhtml">modifie
+                       <h:outputLink value="modif_fournisseur.xhtml">modifie
                         <f:param name="id_fournisseur" value="#{fou.id_fournisseur}"></f:param>
-                        <f:param name="nom_produit" value="#{fou.nom_fournisseur}"></f:param>
+                        <f:param name="nom_fournisseur" value="#{fou.nom_fournisseur}"></f:param>
                         </h:outputLink></td>
                         <td><h:commandButton value="supprime" action="#{fournisseurBean.suppFournisseur}">
                           <f:param name="id_fournisseur" value="#{fou.id_fournisseur}"></f:param>

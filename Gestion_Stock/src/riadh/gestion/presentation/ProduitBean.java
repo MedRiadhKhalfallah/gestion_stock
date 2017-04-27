@@ -57,6 +57,7 @@ public class ProduitBean {
 	private Produit modif_produit = new Produit();
 	//request****************
 private String id;
+private int plus_produit;
 
 @PostConstruct
 public void initBean()
@@ -96,6 +97,8 @@ for (Fournisseur o : list_fourniseur) {
 
 //setter et getter ***********************
 
+
+
 	
 	
 	public List<Produit> getList_produit() {
@@ -105,6 +108,16 @@ for (Fournisseur o : list_fourniseur) {
 
 
 
+
+
+public int getPlus_produit() {
+		return plus_produit;
+	}
+
+
+	public void setPlus_produit(int plus_produit) {
+		this.plus_produit = plus_produit;
+	}
 
 
 public String getId() {
@@ -360,6 +373,59 @@ public void setNom_fournisseur_list(List<SelectItem> nom_fournisseur_list) {
 		Map<String,String> params = fc.getExternalContext().getRequestParameterMap();
 		
 		return params.get(name);
+		
+	}
+	
+	public String plusProduit(ActionEvent e)
+	{
+		Produit p=modif_produit;
+		System.out.println(id);
+		p.setId_produit(Integer.parseInt(id));
+		p.setQuantite_produit(modif_produit.getQuantite_produit()+plus_produit);
+		
+		service_produit.edite(p);
+		
+		// ajout de historique ***************
+		Historique h= new Historique();
+		h.setNom_produit_historique(modif_produit.getNom_produit());
+		// date************
+		Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT+01:00"), Locale.FRANCE);
+		Date date1=calendar.getTime();
+		String dateString=new SimpleDateFormat("dd/MM/yyyy HH:mm").format(date1);
+		//*******
+		h.setDescription_historique("ajout quantite "+plus_produit+" produit "+modif_produit.getNom_produit()+" de fournisseur "+modif_produit.getNom_fournisseur_produit());
+		h.setDate_historique(dateString);
+		service_historique.add(h);
+		// ajout de produit avec success *************
+		success=1;
+		plus_produit=0;
+		return "list_produit";
+		
+	}
+	public String moinsProduit(ActionEvent e)
+	{
+		Produit p=modif_produit;
+		System.out.println(id);
+		p.setId_produit(Integer.parseInt(id));
+		p.setQuantite_produit(modif_produit.getQuantite_produit()-plus_produit);
+		
+		service_produit.edite(p);
+		
+		// ajout de historique ***************
+		Historique h= new Historique();
+		h.setNom_produit_historique(modif_produit.getNom_produit());
+		// date************
+		Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT+01:00"), Locale.FRANCE);
+		Date date1=calendar.getTime();
+		String dateString=new SimpleDateFormat("dd/MM/yyyy HH:mm").format(date1);
+		//*******
+		h.setDescription_historique("reduit quantite "+plus_produit+" produit "+modif_produit.getNom_produit()+" de fournisseur "+modif_produit.getNom_fournisseur_produit());
+		h.setDate_historique(dateString);
+		service_historique.add(h);
+		// ajout de produit avec success *************
+		success=1;
+		plus_produit=0;
+		return "list_produit";
 		
 	}
 	
